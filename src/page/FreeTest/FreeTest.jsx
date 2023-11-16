@@ -26,9 +26,8 @@ const FreeTest = () => {
     const [table, setTable] = useState(false)
     const [totalScore, setTotalScore] = useState(0);
     const [copied, setCopied] = useState(false);
-    const { user } = useAuth();
-    const [isAdmin] = useAdmin()
-    console.log(isAdmin);
+
+
     console.log(totalData);
 
 
@@ -106,23 +105,23 @@ const FreeTest = () => {
         }
     ];
 
-    const questionsPerPage = 4;
+    // const questionsPerPage = 4;
 
 
-    const handleAnswer = (number) => {
-        setIndexNum(-1)
+    // const handleAnswer = (number) => {
+    //     setIndexNum(-1)
 
-        if (currentPage < Math.ceil(questions.length / questionsPerPage) - 1) {
-            setCurrentPage((prevPage) => prevPage + 1);
-        }
+    //     if (currentPage < Math.ceil(questions.length / questionsPerPage) - 1) {
+    //         setCurrentPage((prevPage) => prevPage + 1);
+    //     }
 
-        if (answerInputRef.current) {
-            answerInputRef.current.value = '';
-        }
+    //     if (answerInputRef.current) {
+    //         answerInputRef.current.value = '';
+    //     }
 
-        window.scrollTo({ top: 100, left: 0, behavior: 'smooth' });
+    //     window.scrollTo({ top: 100, left: 0, behavior: 'smooth' });
 
-    };
+    // };
 
     useEffect(() => {
         if (answerInputRef.current) {
@@ -135,10 +134,10 @@ const FreeTest = () => {
     };
 
 
-    const startQuestionIndex = currentPage * questionsPerPage;
-    const endQuestionIndex = startQuestionIndex + questionsPerPage
+    // const startQuestionIndex = currentPage * questionsPerPage;
+    // const endQuestionIndex = startQuestionIndex + questionsPerPage
 
-    const element = document.getElementById(indexNumber + 1);
+    // const element = document.getElementById(indexNumber + 1);
 
 
     const QuestionHandler = (index, question) => {
@@ -255,6 +254,7 @@ const FreeTest = () => {
         }
     }, [formState, reset])
 
+
     const dataSubmit = async () => {
         const newData = {
             email: userEmail,
@@ -329,40 +329,40 @@ const FreeTest = () => {
 
 
                 <form onSubmit={handleSubmit(onSubmit)} action="">
-                    {questions.slice(startQuestionIndex, endQuestionIndex).map((question, index) => (
+                    {questions.map((question, index) => (
                         <div key={index} className='my-16'>
                             <p className='mt-5 text-center text-2xl font-bold text-[#576071] mb-4'>{question.name}</p>
 
                             <input {...register(`questionsName${question.id}`)} defaultChecked={false} name='questions' type="text" className='hidden' defaultValue={question.name} />
                             <div onClick={() => QuestionHandler(index, question)} className={`${index == indexNumber + 1 ? "static" : "opacity-30 "} `} id={`question-${index}`}>
 
-                                <div className='flex justify-center items-center gap-10 mt-10'>
+                                <div className='flex justify-center items-center gap-4 md:gap-10 mt-10 px-2'>
 
-                                    <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={5} name={`question${question.id}`} className="radio   h-16 w-16 border-2 hidden " />
+                                    <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={5} name={`question${question.id}`} className="radio h-16 w-16 border-2 hidden " />
 
-                                    <div className='flex flex-col   items-center gap-2'>
-                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={0} name={`question${question.id}`} className="radio radio-success h-20 w-20 border-2 border-[#33a474]" />
-                                        <label htmlFor={`question${question.id}`} className='text-sm font-bold text-[#33a474]'>NEVER</label>
+                                    <div className='flex flex-col items-center gap-2'>
+                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={0} name={`question${question.id}`} className="radio radio-success h-14 w-14 md:h-20  md:w-20 border-2 border-[#33a474]" />
+                                        <label htmlFor={`question${question.id}`} className='text-xs md:text-sm font-bold text-[#33a474]'>NEVER</label>
                                     </div>
 
                                     <div className='flex flex-col items-center gap-2'>
-                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={1} name={`question${question.id}`} className="radio radio-success h-14 w-14 border-2 border-[#33a474] " />
-                                        <label htmlFor={`question${question.id}`} className='text-sm font-bold text-[#33a474]'>RARELY</label>
+                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={1} name={`question${question.id}`} className="radio radio-success w-12 h-12 md:h-14 md:w-14 border-2 border-[#33a474] " />
+                                        <label htmlFor={`question${question.id}`} className='text-xs md:text-sm font-bold text-[#33a474]'>RARELY</label>
                                     </div>
 
                                     <div className='flex flex-col items-center gap-2'>
-                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={2} name={`question${question.id}`} className="radio radio-[#88619A] h-10 w-10 radio-success  border-2 border-[#33a474]" />
-                                        <label htmlFor={`question${question.id}`} className='text-sm font-bold text-[#33a474]'>OCCASIONALLY</label>
+                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={2} name={`question${question.id}`} className="radio radio-[#88619A] w-8 h-8 md:h-10 md:w-10 radio-success  border-2 border-[#33a474]" />
+                                        <label htmlFor={`question${question.id}`} className='text-xs md:text-sm font-bold text-[#33a474]'>OCCASIONALLY</label>
                                     </div>
 
                                     <div className='flex flex-col items-center gap-2'>
-                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={3} name={`question${question.id}`} className="radio radio-success h-14 w-14 border-2 border-[#33a474]" />
-                                        <label htmlFor={`question${question.id}`} className='text-sm font-bold text-[#33a474]'>USUALLY</label>
+                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={3} name={`question${question.id}`} className="radio radio-success w-12 h-12 md:h-14 md:w-14 border-2 border-[#33a474]" />
+                                        <label htmlFor={`question${question.id}`} className='text-xs md:text-sm font-bold text-[#33a474]'>USUALLY</label>
                                     </div>
 
                                     <div className='flex flex-col items-center gap-2'>
-                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={4} name={`question${question.id}`} className="radio radio-success h-20 w-20 border-2 border-[#33a474]" />
-                                        <label htmlFor={`question${question.id}`} className='text-sm font-bold text-[#33a474]'>ALWAYS</label>
+                                        <input {...register(`question${question.id}`)} defaultChecked={false} type="radio" defaultValue={4} name={`question${question.id}`} className="radio radio-success h-14 w-14 md:h-20  md:w-20 border-2 border-[#33a474]" />
+                                        <label htmlFor={`question${question.id}`} className='text-xs md:text-sm font-bold text-[#33a474]'>ALWAYS</label>
                                     </div>
 
                                 </div>
@@ -375,7 +375,7 @@ const FreeTest = () => {
                     ))}
                     {/* #88619A */}
                     <div className='flex justify-center  mb-20 mt-10 items-center'>
-                        <button className={`${currentPage == 3 ? "" : "hidden"} px-8 text-xl text-white  btn bg-[#33a474] border-[#33a474] flex items-center gap-4  text-center py-2`} >Calculate My EATS Score<FaArrowRight /></button>
+                        <button className={`px-8 text-xl text-white  btn bg-[#33a474] border-[#33a474] flex items-center gap-4  text-center py-2`} >Calculate My EATS Score<FaArrowRight /></button>
                     </div>
                 </form>
 
@@ -392,8 +392,7 @@ const FreeTest = () => {
                             <div className='flex flex-col md:flex-row gap-12'>
                                 <div className='flex items-center gap-10 w-full'>
                                     <img src={icon1} alt="" className='w-16' />
-                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A]'> Connection<span>
-                                        {totalData.slice(0, 4).reduce((acc, curr) => acc + parseInt(curr.Score), 0)}</span></p>
+                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A]'> Connection <Result indices={result01Indices} /></p>
                                 </div>
 
                                 <div className='w-full'>
@@ -406,7 +405,7 @@ const FreeTest = () => {
                             <div className='flex flex-col md:flex-row gap-12'>
                                 <div className='flex items-center gap-10 w-full'>
                                     <img src={icon2} alt="" className='w-16' />
-                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A] whitespace-nowrap'>Escape<span>{totalData.slice(4, 8).reduce((acc, curr) => acc + parseInt(curr.Score), 0)}</span></p>
+                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A] whitespace-nowrap'>Escape <Result indices={result02Indices} /></p>
                                 </div>
 
                                 <div className='w-full'>
@@ -421,7 +420,7 @@ const FreeTest = () => {
                             <div className='flex flex-col md:flex-row gap-12'>
                                 <div className='flex items-center gap-10 w-full'>
                                     <img src={icon3} alt="" className='w-16' />
-                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A]'>Pleasure<span>{totalData.slice(8, 12).reduce((acc, curr) => acc + parseInt(curr.Score), 0)}</span></p>
+                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A]'>Pleasure <Result indices={result03Indices} /></p>
                                 </div>
 
                                 <div className='w-full'>
@@ -436,7 +435,7 @@ const FreeTest = () => {
                             <div className='flex flex-col md:flex-row gap-12'>
                                 <div className='flex items-center gap-10 w-full'>
                                     <img src={icon4} alt="" className='w-16' />
-                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A]'>Security<span>{totalData.slice(12, 16).reduce((acc, curr) => acc + parseInt(curr.Score), 0)}</span></p>
+                                    <p className='flex flex-col items-center text-3xl font-bold text-[#88619A]'>Security <Result indices={result04Indices} /></p>
                                 </div>
 
                                 <div className='w-full'>
@@ -450,9 +449,9 @@ const FreeTest = () => {
                 }
 
 
-                <div className='flex justify-center  mb-20 mt-16 items-center'>
+                {/* <div className='flex justify-center  mb-20 mt-16 items-center'>
                     <button className={`${currentPage == 3 ? "hidden" : ""} px-8 text-xl text-white bg-[#88619A] flex items-center gap-4 rounded-full text-center py-2`} onClick={handleAnswer}>Next <FaArrowRight /></button>
-                </div>
+                </div> */}
 
             </div>
 
@@ -494,20 +493,20 @@ const FreeTest = () => {
 
             {/* The button to open modal */}
 
-            <div className={`${currentPage == 3 ? "" : "hidden"} flex justify-center my-16 gap-20 w-2/3 mx-auto`}>
+            
 
+
+           {
+            table ?  <div className={`w-full lg:w-[70%] mx-auto items-center flex flex-col gap-5 my-14 text-[#000]`}>
+            <p><span className='text-xl font-semibold'>More</span> information and tips available via Molly’s <a href="https://podcasts.apple.com/us/podcast/weight-loss-for-food-lovers/id1500464977" target='_blank' className='underline text-[#88619A]'>Weight Loss for Food-Lovers podcast</a> and in her book <a href="https://www.mollyzemek.com/" target='_blank' className='underline text-[#88619A]'>Decoding Your
+                Emotional Appetite: A Food-Lover’s Guide to Weight Loss.</a></p>
+            <div className='inline-flex items-center gap-4'>Share your EATS score: <span className='cursor-pointer text-[#1877f2] border px-3 py-3 rounded-full border-[#1877f2] hover:bg-[#1877f2] hover:text-white transition-all duration-500' onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(resultUrl)}`, '_blank')}><FaFacebook className='w-5 h-5' /></span>
+                <span className='cursor-pointer text-[#000] border px-3 py-3 rounded-full border-[#356aaf] hover:bg-[#000] hover:text-white transition-all duration-500' onClick={() => window.open(`https://twitter.com/intent/tweet?text=Check%20out%20my%20result!&url=${encodeURIComponent(resultUrl)}`, '_blank')}><FaTwitter className='h-5 w-5 text-blue-500' /></span>
+
+                <span className='cursor-pointer text-[#c71610] border px-3 py-3 rounded-full border-[#c71610] hover:bg-[#c71610] hover:text-[#ffffff] transition-all duration-500' onClick={handleEmailClick}><HiOutlineEnvelope className='h-5 w-5' /></span>
             </div>
-
-
-            <div className={`${currentPage == 3 ? "" : "hidden"} w-full lg:w-[70%] mx-auto items-center flex flex-col gap-5 my-14 text-[#000]`}>
-                <p><span className='text-xl font-semibold'>More</span> information and tips available via Molly’s <a href="https://podcasts.apple.com/us/podcast/weight-loss-for-food-lovers/id1500464977" target='_blank' className='underline text-[#88619A]'>Weight Loss for Food-Lovers podcast</a> and in her book <a href="https://www.mollyzemek.com/" target='_blank' className='underline text-[#88619A]'>Decoding Your
-                    Emotional Appetite: A Food-Lover’s Guide to Weight Loss.</a></p>
-                <div className='inline-flex items-center gap-4'>Share your EATS score: <span className='cursor-pointer text-[#1877f2] border px-3 py-3 rounded-full border-[#1877f2] hover:bg-[#1877f2] hover:text-white transition-all duration-500' onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(resultUrl)}`, '_blank')}><FaFacebook className='w-5 h-5' /></span>
-                    <span className='cursor-pointer text-[#000] border px-3 py-3 rounded-full border-[#356aaf] hover:bg-[#000] hover:text-white transition-all duration-500' onClick={() => window.open(`https://twitter.com/intent/tweet?text=Check%20out%20my%20result!&url=${encodeURIComponent(resultUrl)}`, '_blank')}><FaTwitter className='h-5 w-5 text-blue-500' /></span>
-
-                    <span className='cursor-pointer text-[#c71610] border px-3 py-3 rounded-full border-[#c71610] hover:bg-[#c71610] hover:text-[#ffffff] transition-all duration-500' onClick={handleEmailClick}><HiOutlineEnvelope className='h-5 w-5' /></span>
-                </div>
-            </div>
+        </div> : ""
+           }
 
 
             <input type="checkbox" id="my_modal_6" className="modal-toggle" />
