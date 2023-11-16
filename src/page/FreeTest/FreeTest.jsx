@@ -4,9 +4,7 @@ import { FaArrowRight, FaFacebook, FaTwitter } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { HiOutlineMail, HiOutlineX } from "react-icons/hi";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import useAuth from '../../hooks/useAuth';
-import useAdmin from '../../hooks/useAdmin';
+import axios from 'axios'; 
 import icon1 from "../../assets/icons/people.png";
 import icon2 from "../../assets/icons/man.png";
 import icon3 from "../../assets/icons/tongue.png";
@@ -305,7 +303,7 @@ const FreeTest = () => {
             <div className=' flex flex-col items-center justify-center'>
                 <div className='w-full'>
                     <div className='bg-[#33A474] py-14 md:relative'>
-                        <h1 className='text-4xl font-bold text-white text-center '>What Is Your EATS Score <span className='text-xs'>Ⓒ</span></h1>
+                        <h1 className='text-4xl font-bold text-white text-center '>What Is Your EATS Score  <sup class="font-features sups text-small">Ⓒ </sup>  ?</h1>
                         <p className='text-white text-center mt-4 text-lg font-semibold'>Emotional Appetite Tendency Score (EATS)</p>
                     </div>
                     <div className="custom-shape-divider-bottom-1699756183 ">
@@ -375,7 +373,7 @@ const FreeTest = () => {
                     ))}
                     {/* #88619A */}
                     <div className='flex justify-center  mb-20 mt-10 items-center'>
-                        <button className={`px-8 text-xl text-white  btn bg-[#33a474] border-[#33a474] flex items-center gap-4  text-center py-2`} >Calculate My EATS Score<FaArrowRight /></button>
+                        <button className={`px-8 text-xl text-white  btn bg-[#33a474] border-[#33a474] flex items-center gap-4 hover:bg-white hover:text-green-600 text-center py-2`} >Calculate My EATS Score<FaArrowRight /></button>
                     </div>
                 </form>
 
@@ -498,8 +496,8 @@ const FreeTest = () => {
 
            {
             table ?  <div className={`w-full lg:w-[70%] mx-auto items-center flex flex-col gap-5 my-14 text-[#000]`}>
-            <p><span className='text-xl font-semibold'>More</span> information and tips available via Molly’s <a href="https://podcasts.apple.com/us/podcast/weight-loss-for-food-lovers/id1500464977" target='_blank' className='underline text-[#88619A]'>Weight Loss for Food-Lovers podcast</a> and in her book <a href="https://www.mollyzemek.com/" target='_blank' className='underline text-[#88619A]'>Decoding Your
-                Emotional Appetite: A Food-Lover’s Guide to Weight Loss.</a></p>
+            <p><span className='text-xl font-semibold'>More information and tips available via Molly’s <a href="https://podcasts.apple.com/us/podcast/weight-loss-for-food-lovers/id1500464977" target='_blank' className='underline text-[#88619A]'>Weight Loss for Food-Lovers podcast</a> and in her book <a href="https://www.mollyzemek.com/" target='_blank' className='underline text-[#88619A]'>Decoding Your
+                Emotional Appetite: A Food-Lover’s Guide to Weight Loss.</a></span></p>
             <div className='inline-flex items-center gap-4'>Share your EATS score: <span className='cursor-pointer text-[#1877f2] border px-3 py-3 rounded-full border-[#1877f2] hover:bg-[#1877f2] hover:text-white transition-all duration-500' onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(resultUrl)}`, '_blank')}><FaFacebook className='w-5 h-5' /></span>
                 <span className='cursor-pointer text-[#000] border px-3 py-3 rounded-full border-[#356aaf] hover:bg-[#000] hover:text-white transition-all duration-500' onClick={() => window.open(`https://twitter.com/intent/tweet?text=Check%20out%20my%20result!&url=${encodeURIComponent(resultUrl)}`, '_blank')}><FaTwitter className='h-5 w-5 text-blue-500' /></span>
 
