@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useForm, } from 'react-hook-form';
-import { FaArrowRight, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaArrowRight, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { HiOutlineMail, HiOutlineX } from "react-icons/hi";
 import { Link } from 'react-router-dom';
-import axios from 'axios'; 
+import axios from 'axios';
 import icon1 from "../../assets/icons/people.png";
 import icon2 from "../../assets/icons/man.png";
 import icon3 from "../../assets/icons/tongue.png";
 import icon4 from "../../assets/icons/shield.png";
-import { HiOutlineEnvelope, HiXMark } from 'react-icons/hi2';
 
 const FreeTest = () => {
     const resultUrl = "https://personality-69fe6.web.app/free-test";
@@ -83,7 +82,7 @@ const FreeTest = () => {
         },
         {
             id: 12,
-            name: 'I work hard and deserve a treat and a little “me time” with a favorite food'
+            name: 'I work hard and deserve a treat and a little “me time” with a favorite food.'
         },
         {
             id: 13,
@@ -103,40 +102,13 @@ const FreeTest = () => {
         }
     ];
 
-    // const questionsPerPage = 4;
-
-
-    // const handleAnswer = (number) => {
-    //     setIndexNum(-1)
-
-    //     if (currentPage < Math.ceil(questions.length / questionsPerPage) - 1) {
-    //         setCurrentPage((prevPage) => prevPage + 1);
-    //     }
-
-    //     if (answerInputRef.current) {
-    //         answerInputRef.current.value = '';
-    //     }
-
-    //     window.scrollTo({ top: 100, left: 0, behavior: 'smooth' });
-
-    // };
-
     useEffect(() => {
         if (answerInputRef.current) {
             answerInputRef.current.focus();
         }
     }, [currentPage]);
 
-    const handleEmailClick = () => {
-        window.location.href = mailtoLink;
-    };
-
-
-    // const startQuestionIndex = currentPage * questionsPerPage;
-    // const endQuestionIndex = startQuestionIndex + questionsPerPage
-
-    // const element = document.getElementById(indexNumber + 1);
-
+ 
 
     const QuestionHandler = (index, question) => {
         setIndexNum(index)
@@ -303,7 +275,7 @@ const FreeTest = () => {
             <div className=' flex flex-col items-center justify-center'>
                 <div className='w-full'>
                     <div className='bg-[#33A474] py-14 md:relative'>
-                        <h1 className='text-4xl font-bold text-white text-center '>What Is Your EATS Score  <sup class="font-features sups text-small">Ⓒ </sup>  ?</h1>
+                        <h1 className='text-4xl font-bold text-white text-center '>What Is Your EATS Score<sup class=" ">Ⓒ </sup>  ?</h1>
                         <p className='text-white text-center mt-4 text-lg font-semibold'>Emotional Appetite Tendency Score (EATS)</p>
                     </div>
                     <div className="custom-shape-divider-bottom-1699756183 ">
@@ -379,10 +351,8 @@ const FreeTest = () => {
 
                 {
                     table ? <div className={`w-full lg:w-[70%] mx-auto items-center flex flex-col gap-5 my-14`}>
-                        <p className='text-lg font-semibold'>The larger your number is in a certain emotional appetite area, the higher your Emotional Appetite Tendency
-                            Score (EATS) is in that area. One’s relationship with food is not written in stone. Through various thought work,
-                            you can work to decode your emotional appetite. As you work to change your relationship with food, you
-                            might enjoy taking this quiz again to see if you have decreased your tendency in any areas. </p>
+                        <p className='text-lg font-semibold'>The larger your number is in a certain category's, the higher your Emotional Appetite Tendency
+                            Score (EATS) is in that area. With intentional effort and understanding your thought patterns, you can decode your emotional appetite, and change your relationship with food. As you progress in better knowing yourself, your personal need and how to care for yourself outside of eating. You might enjoy retaking this quiz to see how your answers change.</p>
 
                         <h1 className='text-2xl font-bold my-5'>What Is Your EATS Score ?</h1>
 
@@ -394,9 +364,9 @@ const FreeTest = () => {
                                 </div>
 
                                 <div className='w-full'>
-                                    <p className='text-lg font-bold'>Core Belief: I might stand out if I don’t join in.</p>
-                                    <p className='text-lg font-bold'>Key Mindset Shift: I can control my own happiness.</p>
-                                    <p className='text-lg font-bold'>Key Emotional Shift: From Obligated to Committed.</p>
+                                    <p className='text-lg font-bold'>Core Belief: I might stand out if I don’t join in</p>
+                                    <p className='text-lg font-bold'>Key Mindset Shift: I can control my own happiness</p>
+                                    <p className='text-lg font-bold'>Key Emotional Shift: From Obligated to Committed</p>
                                 </div>
                             </div>
 
@@ -409,8 +379,8 @@ const FreeTest = () => {
                                 <div className='w-full'>
                                     <p className='text-lg font-bold'>Core Belief: I deserve a treat</p>
                                     <p className='text-lg font-bold'>Key Mindset Shift: I want to make time for myself to
-                                        decompress without food.</p>
-                                    <p className='text-lg font-bold'>Key Emotional Shift: From Overwhelmed to Curious.</p>
+                                        decompress without food</p>
+                                    <p className='text-lg font-bold'>Key Emotional Shift: From Overwhelmed to Curious</p>
                                 </div>
                             </div>
 
@@ -422,10 +392,10 @@ const FreeTest = () => {
                                 </div>
 
                                 <div className='w-full'>
-                                    <p className='text-lg font-bold'>Core Belief: More is better.</p>
+                                    <p className='text-lg font-bold'>Core Belief: More is better</p>
                                     <p className='text-lg font-bold'>Key Mindset Shift: This is more than enough to be fully
-                                        satisfied.</p>
-                                    <p className='text-lg font-bold'>Key Emotional Shift: From Dismissive to Satisfied.</p>
+                                        satisfied</p>
+                                    <p className='text-lg font-bold'>Key Emotional Shift: From Dismissive to Satisfied</p>
                                 </div>
                             </div>
 
@@ -437,9 +407,9 @@ const FreeTest = () => {
                                 </div>
 
                                 <div className='w-full'>
-                                    <p className='text-lg font-bold'>Core Belief: Food will make me safe.</p>
+                                    <p className='text-lg font-bold'>Core Belief: Food will make me safe</p>
                                     <p className='text-lg font-bold'>Key Mindset Shift: I can support myself</p>
-                                    <p className='text-lg font-bold'>Key Emotional Shift: From Entitled to Compassionate.</p>
+                                    <p className='text-lg font-bold'>Key Emotional Shift: From Entitled to Compassionate</p>
                                 </div>
                             </div>
                         </div>
@@ -447,64 +417,25 @@ const FreeTest = () => {
                 }
 
 
-                {/* <div className='flex justify-center  mb-20 mt-16 items-center'>
-                    <button className={`${currentPage == 3 ? "hidden" : ""} px-8 text-xl text-white bg-[#88619A] flex items-center gap-4 rounded-full text-center py-2`} onClick={handleAnswer}>Next <FaArrowRight /></button>
-                </div> */}
+
 
             </div>
-
 
 
             {
-                // table === true ?
-                //     <>
-                //         <div className="overflow-x-auto w-2/3 mx-auto my-8">
-                //             <table className="table table-zebra">
-                //                 {/* head */}
-                //                 <thead>
-                //                     <tr className='bg-[#88619A] text-white text-center'>
-                //                         <th className='border'>Name</th>
-                //                         <th className='border'>Score</th>
-                //                     </tr>
-                //                 </thead>
-                //                 <tbody>
+                table ? <div className={`w-full lg:w-[70%] mx-auto items-center flex flex-col gap-5 my-14 text-[#000]`}>
+                    <p><span className='text-xl font-semibold'>More information and tips available via Molly’s <a href="https://podcasts.apple.com/us/podcast/weight-loss-for-food-lovers/id1500464977" target='_blank' className='underline text-[#88619A]'>Weight Loss for Food-Lovers podcast</a> and in her book <a href="https://www.mollyzemek.com/book" target='_blank' className='underline text-[#88619A]'>Decoding Your
+                        Emotional Appetite: A Food-Lover’s Guide to Weight Loss.</a></span></p>
 
-                //                     {
-                //                         totalData.map((t, index) => <tr key={index}>
-                //                             <th className='text-start border px-3 py-2'>{t.Name}</th>
-                //                             <th className='border px-3 py-2'>{t.Score}</th>
-                //                         </tr>)
-                //                     }
 
-                //                 </tbody>
-                //             </table>
-                //         </div>
+                    <div className='inline-flex items-center gap-4'>Share your EATS score: <span className='cursor-pointer text-[#1877f2] border px-3 py-3 rounded-full border-[#1877f2] hover:bg-[#1877f2] hover:text-white transition-all duration-500' onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(resultUrl)}`, '_blank')}><FaFacebook className='w-5 h-5' /></span>
 
-                //         <div className='my-9 text-center'>
-                //             <h1 className='font-bold text-2xl text-lime-500'> Total Score : {totalScore} </h1>
-                //         </div>
-                //     </>
-                //     :
-                //     <></>
+                        <span className='cursor-pointer text-[#000] border px-3 py-3 rounded-full border-[#356aaf] hover:bg-[#000] hover:text-white transition-all duration-500' onClick={() => window.open(`https://twitter.com/intent/tweet?text=Check%20out%20my%20result!&url=${encodeURIComponent(resultUrl)}`, '_blank')}><FaTwitter className='h-5 w-5 text-blue-500' /></span>
+
+                        <span className='cursor-pointer text-[#c71610] border px-3 py-3 rounded-full border-[#c71610] hover:bg-[#c71610] hover:text-[#ffffff] transition-all duration-500' onClick={() => window.open(`https://www.instagram.com/create/story=${encodeURIComponent(resultUrl)}`, '_blank')}><FaInstagram className='h-5 w-5' /></span>
+                    </div>
+                </div> : ""
             }
-
-
-            {/* The button to open modal */}
-
-            
-
-
-           {
-            table ?  <div className={`w-full lg:w-[70%] mx-auto items-center flex flex-col gap-5 my-14 text-[#000]`}>
-            <p><span className='text-xl font-semibold'>More information and tips available via Molly’s <a href="https://podcasts.apple.com/us/podcast/weight-loss-for-food-lovers/id1500464977" target='_blank' className='underline text-[#88619A]'>Weight Loss for Food-Lovers podcast</a> and in her book <a href="https://www.mollyzemek.com/" target='_blank' className='underline text-[#88619A]'>Decoding Your
-                Emotional Appetite: A Food-Lover’s Guide to Weight Loss.</a></span></p>
-            <div className='inline-flex items-center gap-4'>Share your EATS score: <span className='cursor-pointer text-[#1877f2] border px-3 py-3 rounded-full border-[#1877f2] hover:bg-[#1877f2] hover:text-white transition-all duration-500' onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(resultUrl)}`, '_blank')}><FaFacebook className='w-5 h-5' /></span>
-                <span className='cursor-pointer text-[#000] border px-3 py-3 rounded-full border-[#356aaf] hover:bg-[#000] hover:text-white transition-all duration-500' onClick={() => window.open(`https://twitter.com/intent/tweet?text=Check%20out%20my%20result!&url=${encodeURIComponent(resultUrl)}`, '_blank')}><FaTwitter className='h-5 w-5 text-blue-500' /></span>
-
-                <span className='cursor-pointer text-[#c71610] border px-3 py-3 rounded-full border-[#c71610] hover:bg-[#c71610] hover:text-[#ffffff] transition-all duration-500' onClick={handleEmailClick}><HiOutlineEnvelope className='h-5 w-5' /></span>
-            </div>
-        </div> : ""
-           }
 
 
             <input type="checkbox" id="my_modal_6" className="modal-toggle" />
